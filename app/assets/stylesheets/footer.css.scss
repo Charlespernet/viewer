@@ -1,0 +1,117 @@
+/******************************************************
+  FOOTER
+********************************************************/
+
+footer {
+  margin-bottom: 0;
+  padding: 0;
+  background: black;
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  text-shadow: 0 1px 0 #000;
+}
+
+footer .container {
+  padding: 40px 0;
+  text-align: center;
+}
+footer .container .row {
+  margin: 0 !important;
+}
+
+footer p {
+  margin: 0;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+footer .list-circle-icons {
+  margin: 0 0 10px;
+  display: block;
+}
+footer .list-circle-icons li {
+  padding: 0;
+  height: auto;
+  width: auto;
+  background: none;
+}
+footer .list-circle-icons li a {
+  padding: 10px;
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 36px;
+  background-color: #52525E;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+footer .list-circle-icons li a:hover {
+  text-decoration: none;
+  background: #6A6A7A;
+}
+
+footer .list-inline li {
+  margin: 0 0 0 5px;
+  display: inline-block;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  list-style-type: none;
+  color: #fff;
+  }
+
+footer .list-inline li a {
+  color: #fff;
+}
+
+footer .list-inline li a:hover,
+footer .list-inline li a:focus {
+  color: #869baf;
+  text-decoration: none;
+}
+
+.list-circle-icons li {
+  margin: 0 5px 10px;
+  padding: 10px;
+  height: 90px;
+  width: 90px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 42px;
+  background: #388ce0;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+  color: #fff;
+}
+
+.list-circle-icons li [class^="fa-"],
+.list-circle-icons li [class*=" fa-"] {
+  font-size: 45px;
+  line-height: 1.6;
+  color: #fff;
+}
+.list-circle-icons li .fa-heart,
+.list-circle-icons li .fa-desktop {
+  line-height: 1.7;
+}
+.list-circle-icons-small li {
+  height: 45px;
+  width: 45px;
+  line-height: 24px;
+}
+.list-circle-icons-small li [class^="fa-"],
+.list-circle-icons-small li [class*=" fa-"] {
+  font-size: 24px;
+  vertical-align: top;
+  line-height: 1.2;
+  }
