@@ -1,0 +1,13 @@
+<%= simple_form_for(@match) do |f| %>
+  <%= f.input :name %>
+
+  <%= f.input :start_time %>
+
+  <%= f.input :end_time %>
+
+  <%= f.input :map_id, collection: Map.all %>
+
+  <%= f.input :description %>
+
+  <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
+<% end %>
