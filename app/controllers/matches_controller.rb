@@ -12,9 +12,6 @@ class MatchesController < ApplicationController
     @match = Match.new
   end
 
-  def edit
-  end
-
   def create
     @match = Match.new(match_params)
     if @match.save
@@ -22,6 +19,9 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update
