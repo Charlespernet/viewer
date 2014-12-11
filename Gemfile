@@ -42,6 +42,8 @@ gem 'simple_form'
 
 gem 'enumerize'
 
+gem 'figaro'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
