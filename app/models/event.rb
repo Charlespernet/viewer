@@ -4,6 +4,9 @@ class Event < ActiveRecord::Base
   enumerize :category, in: [:fight, :economy, :technology]
 
   belongs_to :match
+  has_many :participants
+  has_and_belongs_to_many :players
+
   validates_presence_of :match
   validates_presence_of :category
   validates_presence_of :time

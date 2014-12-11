@@ -14,6 +14,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    if @event.save
+      redirect_to match_path(@match)
+    else
+      render :new
+    end
   end
 
   private

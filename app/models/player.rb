@@ -2,6 +2,8 @@ class Player < ActiveRecord::Base
   has_many :matches, through: :participants
   has_many :participants
 
+  has_and_belongs_to_many :events
+
   validates_presence_of :name
   validates_uniqueness_of :name
 
