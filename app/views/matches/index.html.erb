@@ -6,6 +6,11 @@
   <p>Map: <%= match.map.name %></p>
   <p>Description: <%= match.description %></p>
   <% match.participants.each do |participant| %>
-    <p><%= participant.player.name %> - <%= participant.race.name %> - <%= participant.winner %></p>
+    <p>
+      <%= participant.player.name %> -
+      <%= participant.race.name %> -
+      <%= "Won" if participant.winner %>
+      <%= "Lost" if participant.winner == false %>
+    </p>
   <% end %>
 <% end %>
