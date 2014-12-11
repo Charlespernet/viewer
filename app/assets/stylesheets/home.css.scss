@@ -1,0 +1,35 @@
+.wrapper {
+  background-image: url("home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 20px;
+  height: 500px;
+  color: white;
+}
+
+.wrapper h1 {
+  padding-top: 200px;
+}
+
+.content {
+  height: 500px;
+  border: 1px solid #fbb50d;
+  background-color: #1f1e1e;
+  color: #b9b9b9;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.content span {
+  color: #fbb50d;
+}
+
+#mailing {
+  background-color: #3a3a3a;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  height: 200px;
+  margin: 20px;
+}
