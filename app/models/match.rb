@@ -4,6 +4,8 @@ class Match < ActiveRecord::Base
   has_many :participants
   has_many :events, dependent: :destroy
 
+  accepts_nested_attributes_for :participants, :allow_destroy => true
+
   validates_presence_of :name, :start_time, :end_time, :map
 
   # def name

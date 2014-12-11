@@ -1,5 +1,7 @@
 <h1><%= @match.name %></h1>
 
-
+<% @match.participants.each do |p| %>
+  <P><%= p.player.name %> - <%= p.race.name %></P>
+<% end %>
 
 <P><%= link_to "All matches", matches_path %></P>

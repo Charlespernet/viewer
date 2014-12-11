@@ -9,7 +9,10 @@ class MatchesController < ApplicationController
   end
 
   def new
+    @races = Race.all
+    @players = Player.all
     @match = Match.new
+    @match.participants.build
   end
 
   def edit
@@ -17,6 +20,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
+    @match.participants.map { |p| p.match = @match }
     if @match.save
       redirect_to match_path(@match)
     else
@@ -40,6 +44,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:name, :start_time, :end_time, :description, :map_id)
+    params.require(:match).permit(:name, :start_time, :end_time, :description, :map_id, participants_attributes: [:id, :player_id, :race_id, :match_id, :winner, :_destroy])
   end
 end
