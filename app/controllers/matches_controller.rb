@@ -15,9 +15,6 @@ class MatchesController < ApplicationController
     @match.participants.build
   end
 
-  def edit
-  end
-
   def create
     @match = Match.new(match_params)
     @match.participants.map { |p| p.match = @match }
@@ -26,6 +23,9 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update
