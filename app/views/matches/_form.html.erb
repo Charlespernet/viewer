@@ -1,9 +1,19 @@
 <%= simple_form_for(@match) do |f| %>
+
   <%= f.input :name %>
 
   <%= f.input :start_time %>
 
   <%= f.input :end_time %>
+
+  <div id="Participants">
+    <%= f.simple_fields_for :participants do |p| %>
+      <%= render "participant_fields", f: p %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add another participant', f, :participants %>
+    </div>
+  </div>
 
   <%= f.input :map_id, collection: Map.all %>
 
