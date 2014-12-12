@@ -2,7 +2,7 @@
   <%= f.input :time %>
 
   <!-- Pick player -->
-  <%= f.association :players, include_blank: false %>
+  <%= f.association :players, collection: @events_players, include_blank: false %>
 
   <!-- Pick on map -->
   <div id="map">
