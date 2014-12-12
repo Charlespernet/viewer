@@ -1,7 +1,14 @@
 <h1><%= @match.name %></h1>
 
 <% @match.participants.each do |p| %>
-  <P><%= p.player.name %> - <%= p.race.name %></P>
+  <P>
+    <%= p.player.name %> played <%= p.race.name %> and
+    <%= "won" if p.winner %>
+    <%= "lost" if p.winner == false %> the match.
+  </P>
 <% end %>
 
-<P><%= link_to "All matches", matches_path %></P>
+<P>
+  <%= link_to "All matches", matches_path %> -
+  <%= link_to "Edit match", edit_match_path(@match) %>
+</P>
