@@ -11,6 +11,10 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.players.build
+    @events_players = []
+    @match.participants.each do |participant|
+      @events_players << participant.player
+    end
   end
 
   def create
@@ -18,7 +22,6 @@ class EventsController < ApplicationController
     @event.posX = params[:event][:pos_x]
     @event.posY = params[:event][:pos_y]
     @event.match = @match
-    raise
     if @event.save
       redirect_to match_path(@match)
     else
