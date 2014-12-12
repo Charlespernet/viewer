@@ -26,10 +26,13 @@ class MatchesController < ApplicationController
   end
 
   def edit
+    @races = Race.all
+    @players = Player.all
   end
 
   def update
     @match.update(match_params)
+    @match.participants.map { |p| p.match = @match }
     if @match.save
       redirect_to match_path(@match)
     else
