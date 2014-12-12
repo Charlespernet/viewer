@@ -10,10 +10,15 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.players.build
   end
 
   def create
     @event = Event.new(event_params)
+    @event.posX = params[:event][:pos_x]
+    @event.posY = params[:event][:pos_y]
+    @event.match = @match
+    raise
     if @event.save
       redirect_to match_path(@match)
     else
@@ -28,7 +33,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:category, :time, :posX, :posY, :ratio)
+    params.require(:event).permit(:category, :time, :ratio, :player_ids => [])
   end
 
 end
