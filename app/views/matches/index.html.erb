@@ -1,24 +1,31 @@
-<h1>Matches!</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
 
-<% @matches.each do |match| %>
-  <h3><%= link_to "#{match.name}", match_path(match) %></h3>
-  <p>Duration: <%= match.end_time - match.start_time %></p>
-  <p>Map: <%= match.map.name %></p>
-  <p>Description: <%= match.description %></p>
-  <% match.participants.each do |participant| %>
-    <p>
-      <%= participant.player.name %> -
-      <%= participant.race.name %> -
-      <%= "Won" if participant.winner %>
-      <%= "Lost" if participant.winner == false %>
-    </p>
-  <% end %>
-  <%= link_to "Edit match", edit_match_path(match) %>
-<% end %>
+      <h1>Matches!</h1>
 
-<br>
-<br>
+      <% @matches.each do |match| %>
+        <h3><%= link_to "#{match.name}", match_path(match) %></h3>
+        <p>Duration: <%= match.end_time - match.start_time %></p>
+        <p>Map: <%= match.map.name %></p>
+        <p>Description: <%= match.description %></p>
+        <% match.participants.each do |participant| %>
+          <p>
+            <%= participant.player.name %> -
+            <%= participant.race.name %> -
+            <%= "Won" if participant.winner %>
+            <%= "Lost" if participant.winner == false %>
+          </p>
+        <% end %>
+        <%= link_to "Edit match", edit_match_path(match) %>
+      <% end %>
 
-<div class="btn btn-default">
-  <%= link_to "Add a match", new_match_path %>
+      <br>
+      <br>
+
+      <div class="btn btn-default">
+        <%= link_to "Add a match", new_match_path %>
+      </div>
+    </div>
+  </div>
 </div>

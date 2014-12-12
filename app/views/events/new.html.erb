@@ -1,11 +1,18 @@
-<h1>Event Creation</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Event Creation</h1>
 
-<%= simple_form_for([@match, @event], html: { multipart: true }) do |f| %>
-  <!-- select category -->
-  <%= f.input :category %>
+      <%= simple_form_for([@match, @event], html: { multipart: true }) do |f| %>
+        <!-- select category -->
+        <%= f.input :category %>
 
-  <%= render 'eco_form', f: f %>
+        <%= render 'eco_form', f: f %>
 
 
-  <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
-<% end %>
+        <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
