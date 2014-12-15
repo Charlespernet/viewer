@@ -13,9 +13,12 @@
           <%= render 'eco_form', f: f %>
         </div>
 
+        <div id="techno">
+          <%= render 'techno_form', f: f %>
+        </div>
+
         <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
 
-        <script type="text/javascript" src="form_category.js"></script>
       <% end %>
     </div>
   </div>

@@ -12,9 +12,12 @@ class EventsController < ApplicationController
     @event = Event.new
     @event.players.build
     @events_players = []
+    @match_buildings = []
     @match.participants.each do |participant|
       @events_players << participant.player
+      @match_buildings += participant.race.buildings
     end
+    @match_buildings.uniq!
   end
 
   def create
