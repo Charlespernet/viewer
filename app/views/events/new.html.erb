@@ -5,12 +5,17 @@
 
       <%= simple_form_for([@match, @event], html: { multipart: true }) do |f| %>
         <!-- select category -->
-        <%= f.input :category %>
+        <div id='category'>
+          <%= f.input :category %>
+        </div>
 
-        <%= render 'eco_form', f: f %>
-
+        <div class='hidden' id='eco'>
+          <%= render 'eco_form', f: f %>
+        </div>
 
         <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
+
+        <script type="text/javascript" src="form_category.js"></script>
       <% end %>
     </div>
   </div>
