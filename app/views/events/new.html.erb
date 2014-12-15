@@ -3,17 +3,17 @@
     <div class="col-xs-12">
       <h1>Event Creation</h1>
 
-      <%= simple_form_for([@match, @event], html: { multipart: true }) do |f| %>
+      <%= simple_form_for([@match, @event]) do |f| %>
         <!-- select category -->
         <div id='category'>
           <%= f.input :category %>
         </div>
 
-        <div class='hidden' id='eco'>
+        <div class='hidden' id='economy'>
           <%= render 'eco_form', f: f %>
         </div>
 
-        <div class='hidden' id="techno">
+        <div class='hidden' id="technology">
           <%= render 'techno_form', f: f %>
         </div>
 

@@ -27,6 +27,10 @@ class EventsController < ApplicationController
     @event.posX = params[:event][:pos_x]
     @event.posY = params[:event][:pos_y]
     @event.match = @match
+
+    # @event.units =
+
+
     if @event.save
       redirect_to match_path(@match)
     else

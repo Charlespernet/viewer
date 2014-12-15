@@ -4,28 +4,19 @@
 <!-- Pick player -->
 <div class="container text-center">
   <div class="row">
-    <div class="col-xs-6">
-      <%= @match.participants[0].player.name %>
-      <div class="form-group select optional event_unit">
-        <label class="select optional control-label" for="event_unit">Unit</label>
-        <select name="event[unit]" id="event_unit" class="select optional form-control">
-          <% @match_units.each do |unit| %>
-            <option value=<%=unit.id%> data-race=<%= unit.race_id %>><%=unit.name%></option>
+    <% @match.participants.each do |participant| %>
+      <div class="col-xs-6">
+        <%= participant.player.name %>
+        <div class="form-group select optional event_unit" data-toggle="buttons">
+          <% participant.race.units.each do |unit| %>
+            <label class="btn">
+              <%= image_tag unit.picture.url(:thumb) %>
+              <input type="checkbox" name="event[unit][<%=participant.player.id%>][]" class="form-control player_units" value="<%=unit.id%>" />
+            </label>
           <% end %>
-        </select>
+        </div>
       </div>
-    </div>
-    <div class="col-xs-6">
-      <%= @match.participants[1].player.name %>
-      <div class="form-group select optional event_unit">
-        <label class="select optional control-label" for="event_unit">Unit</label>
-        <select name="event[unit]" id="event_unit" class="select optional form-control">
-          <% @match_units.each do |unit| %>
-            <option value=<%=unit.id%> data-race=<%= unit.race_id %>><%=unit.name%></option>
-          <% end %>
-        </select>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
