@@ -2,4 +2,9 @@
 <%= f.input :time %>
 
 <!-- Pick player -->
-<%= f.association :players, collection: @events_players, include_blank: false %>
+<select name="event[player_ids][]" id="event_player_ids" class="update_race form-control">
+  <option value="">Select player</option>
+  <% @match.participants.each do |participant| %>
+    <option value=<%=participant.player.id%> data-race=<%= participant.race.id %>><%=participant.player.name%></option>
+  <% end %>
+</select>
