@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   belongs_to :building
   has_many :participants
   has_and_belongs_to_many :players
+  has_many :events_units
+  has_many :units, through: :events_units
 
   validates_presence_of :match
   validates_presence_of :category
