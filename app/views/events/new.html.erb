@@ -13,8 +13,19 @@
           <%= render 'eco_form', f: f %>
         </div>
 
-        <div id="techno">
+        <div class='hidden' id="techno">
           <%= render 'techno_form', f: f %>
+        </div>
+
+        <div class='hidden' id="fight">
+          <%= render 'fight_form', f: f %>
+        </div>
+
+        <div class="hidden" id="map">
+          <%= image_tag(@match.map.picture.url, class: "match_pic")%>
+          <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marker") %>
+          <%= f.input :posX, as: :hidden, input_html: { name: "event[pos_x]" } %>
+          <%= f.input :posY, as: :hidden, input_html: { name: "event[pos_y]" } %>
         </div>
 
         <%= f.button :submit, class: 'btn btn-danger btn-lg' %>

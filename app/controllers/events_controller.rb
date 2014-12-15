@@ -13,9 +13,11 @@ class EventsController < ApplicationController
     @event.players.build
     @events_players = []
     @match_buildings = []
+    @match_units = []
     @match.participants.each do |participant|
       @events_players << participant.player
       @match_buildings += participant.race.buildings
+      @match_units += participant.race.units
     end
     @match_buildings.uniq!
   end

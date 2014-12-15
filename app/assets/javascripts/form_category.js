@@ -7,6 +7,21 @@ $(document).ready(function() {
       var category = $(this).val();
       if (category == 'economy') {
         $('#eco').removeClass("hidden");
+        $('#map').removeClass("hidden");
+        $('#techno').addClass("hidden");
+        $('#fight').addClass("hidden");
+      }
+      if (category == 'technology') {
+        $('#techno').removeClass("hidden");
+        $('#eco').addClass("hidden");
+        $('#fight').addClass("hidden");
+        $('#map').addClass("hidden");
+      }
+      if (category == 'fight') {
+        $('#fight').removeClass("hidden");
+        $('#map').removeClass("hidden");
+        $('#techno').addClass("hidden");
+        $('#eco').addClass("hidden");
       }
     });
 
