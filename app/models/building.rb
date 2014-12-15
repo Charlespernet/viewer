@@ -1,5 +1,6 @@
 class Building < ActiveRecord::Base
   belongs_to :race
+  has_many :events
 
   validates_presence_of :name, :race
   validates_uniqueness_of :name

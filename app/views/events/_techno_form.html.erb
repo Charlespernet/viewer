@@ -1,0 +1,21 @@
+<!-- Define time -->
+<%= f.input :time %>
+
+<!-- Pick player -->
+<select name="event[player_ids][]" id="event_player_ids" class="update_race form-control">
+  <option>Select player</option>
+  <% @match.participants.each do |participant| %>
+    <option value=<%=participant.player.id%> data-race=<%= participant.race.id %>><%=participant.player.name%></option>
+  <% end %>
+</select>
+
+
+<!-- Pick a key building -->
+<div class="form-group select optional event_building">
+  <label class="select optional control-label" for="event_building">Building</label>
+  <select name="event[building]" id="event_building" class="select optional form-control">
+    <% @match_buildings.each do |building| %>
+      <option value=<%=building.id%> data-race=<%= building.race_id %>><%=building.name%></option>
+    <% end %>
+  </select>
+</div>
