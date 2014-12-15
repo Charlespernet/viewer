@@ -25,11 +25,21 @@
   color: #fbb50d;
 }
 
+.btn-perso {
+  color: #ffffff;
+  background-color: #1f1e1e;
+  font-family: impact;
+}
+
+#mc-embedded-subscribe:hover {
+  color: #fbb50d;
+}
+
 #mailing {
   background-color: #3a3a3a;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  height: 200px;
   margin: 20px;
+  padding: 20px;
 }
