@@ -6,7 +6,7 @@
 
       <% @matches.each do |match| %>
         <h3><%= link_to "#{match.name}", match_path(match) %></h3>
-        <p>Duration: <%= match.end_time - match.start_time %></p>
+        <p>Duration: <%= match.end_time - match.start_time %> </p>
         <p>Map: <%= match.map.name %></p>
         <p>Description: <%= match.description %></p>
         <% match.participants.each do |participant| %>
@@ -17,6 +17,7 @@
             <%= "Lost" if participant.winner == false %>
           </p>
         <% end %>
+        <%= image_tag(match.map.picture.url, size: '150') %>
         <%= link_to "Edit match", edit_match_path(match) %>
       <% end %>
 

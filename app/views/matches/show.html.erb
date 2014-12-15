@@ -29,12 +29,12 @@
         </div>
       </div>
 
-      <div style="position: relative">
-        <%= image_tag(@match.map.picture.url, class: "match_pic", usemap: "#match_map") %>
+      <div id="map" style="clear: both">
+        <%= image_tag(@match.map.picture.url, class: "match_pic") %>
         <% @match.events.each do |event| %>
-          <%= x = event.posX %>
-          <%= y = event.posY %>
-          <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marked", style: "left:#{x}px; top:#{y}px") %>
+          <%= image_tag("fight.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") %>
+          <%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") %>
+          <%= image_tag("techno.png", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") %>
         <% end %>
       </div>
 
@@ -46,5 +46,3 @@
     </div>
   </div>
 </div>
-
-
