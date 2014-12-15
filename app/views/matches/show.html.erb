@@ -3,13 +3,40 @@
     <div class="col-xs-12">
       <h1><%= @match.name %></h1>
 
-      <% @match.participants.each do |p| %>
-        <p>
-          <%= p.player.name %> played <%= p.race.name %> and
-          <%= "won" if p.winner %>
-          <%= "lost" if p.winner == false %> the match.
-        </p>
-      <% end %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="team1">
+          <%= image_tag(@p1.player.picture.url, size: "100") %>
+          <br>
+          <%= @p1.player.name %> - <%= @p1.race.name %>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="score">
+          <% if @p1.winner %>
+            <%= "Winner - Loser" %>
+          <% elsif @p2.winner %>
+            <%= "Loser - Winner" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="team2">
+          <%= image_tag(@p2.player.picture.url, size: "100") %>
+          <br>
+          <%= @p2.player.name %> - <%= @p2.race.name %>
+        </div>
+      </div>
+
+      <div style="position: relative">
+        <%= image_tag(@match.map.picture.url, class: "match_pic", usemap: "#match_map") %>
+        <% @match.events.each do |event| %>
+          <%= x = event.posX %>
+          <%= y = event.posY %>
+          <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marked", style: "left:#{x}px; top:#{y}px") %>
+        <% end %>
+      </div>
 
       <p>
         <%= link_to "All matches", matches_path %> -
