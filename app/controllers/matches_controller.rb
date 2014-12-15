@@ -6,6 +6,8 @@ class MatchesController < ApplicationController
   end
 
   def show
+    @p1 = @match.participants[0]
+    @p2 = @match.participants[1]
   end
 
   def new

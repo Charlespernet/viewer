@@ -1,0 +1,28 @@
+.team1 {
+  display: inline-block;
+  float: left;
+  padding-bottom: 20px;
+}
+
+.score {
+  display: inline-block;
+}
+
+.team2 {
+  display: inline-block;
+  float: right;
+  padding-bottom: 20px;
+}
+
+.match_pic {
+  width: 500px;
+  height: 500px;
+}
+
+#marked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: auto;
+}
