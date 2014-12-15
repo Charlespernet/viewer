@@ -1,13 +1,13 @@
 <!-- Define time -->
-  <%= f.input :time %>
+<%= f.input :time %>
 
-  <!-- Pick player -->
-  <%= f.association :players, collection: @events_players, include_blank: false %>
+<!-- Pick player -->
+<%= f.association :players, collection: @events_players, include_blank: false %>
 
-  <!-- Pick on map -->
-  <div id="map">
-    <%= image_tag(@match.map.picture.url)%>
-    <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marker") %>
-    <%= f.input :posX, input_html: { name: "event[pos_x]" } %>
-    <%= f.input :posY, as: :hidden, input_html: { name: "event[pos_y]" } %>
-  </div>
+<!-- Pick on map -->
+<div id="map">
+  <%= image_tag(@match.map.picture.url)%>
+  <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marker") %>
+  <%= f.input :posX, input_html: { name: "event[pos_x]" } %>
+  <%= f.input :posY, as: :hidden, input_html: { name: "event[pos_y]" } %>
+</div>
