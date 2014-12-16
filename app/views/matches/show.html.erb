@@ -32,9 +32,8 @@
       <div id="map" style="clear: both">
         <%= image_tag(@match.map.picture.url, class: "match_pic") %>
         <% @match.events.each do |event| %>
-          <%= image_tag("fight.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") %>
-          <%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") %>
-          <%= image_tag("techno.png", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") %>
+          <%= image_tag("fight.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "fight" %>
+          <%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "economy" %>
         <% end %>
       </div>
 
