@@ -2,33 +2,61 @@
   <div class="row">
     <div class="col-xs-12">
       <h1><%= @match.name %></h1>
+    </div>
+  </div>
 
-      <div class="col-xs-12 col-sm-4">
-        <div class="team1">
-          <%= image_tag(@p1.player.picture.url, size: "100") %>
-          <br>
-          <%= @p1.player.name %> - <%= @p1.race.name %>
-        </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="team1">
+        <%= image_tag(@p1.player.picture.url, size: "100") %>
+        <br>
+        <%= @p1.player.name %> - <%= @p1.race.name %>
       </div>
+    </div>
 
-      <div class="col-xs-12 col-sm-4">
-        <div class="score">
-          <% if @p1.winner %>
-            <%= "Winner - Loser" %>
-          <% elsif @p2.winner %>
-            <%= "Loser - Winner" %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="score">
+        <% if @p1.winner %>
+          <%= "Winner - Loser" %>
+        <% elsif @p2.winner %>
+          <%= "Loser - Winner" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="team2">
+        <%= image_tag(@p2.player.picture.url, size: "100") %>
+        <br>
+        <%= @p2.player.name %> - <%= @p2.race.name %>
+      </div>
+    </div>
+  </div>
+
+  <% @match.participants.each do |participant| %>
+    <div class="row">
+      <div class="col-xs-2" id="participant_name">
+        <%= participant.player.name %>
+      </div>
+      <div class="col-xs-10">
+        <div id="timeline" style="clear: both">
+          <p></p>
+          <% @match.events.each do |event| %>
+            <% event.event_objects.each do |part_event| %>
+              <% if part_event.participant == participant %>
+                <%= image_tag("fight.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "fight" %>
+                <%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %>
+                <%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
+    </div>
+  <% end %>
 
-      <div class="col-xs-12 col-sm-4">
-        <div class="team2">
-          <%= image_tag(@p2.player.picture.url, size: "100") %>
-          <br>
-          <%= @p2.player.name %> - <%= @p2.race.name %>
-        </div>
-      </div>
-
+  <div class="row">
+    <div class="col-xs-12">
       <div id="map" style="clear: both">
         <%= image_tag(@match.map.picture.url, class: "match_pic") %>
         <% @match.events.each do |event| %>
@@ -36,12 +64,14 @@
           <%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "economy" %>
         <% end %>
       </div>
+    </div>
+  </div>
 
-      <p>
-        <%= link_to "All matches", matches_path %> -
-        <%= link_to "Edit match", edit_match_path(@match) %> -
-        <%= link_to "Create event", new_match_event_path(@match) %>
-      </p>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to "All matches", matches_path %> -
+      <%= link_to "Edit match", edit_match_path(@match) %> -
+      <%= link_to "Create event", new_match_event_path(@match) %>
     </div>
   </div>
 </div>
