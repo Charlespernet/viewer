@@ -1,7 +1,7 @@
 class Unit < ActiveRecord::Base
   belongs_to :race
-  has_many :events_units
-  has_many :events, through: :events_units
+  has_many :events_objects
+  has_many :events, through: :events_objects
 
   validates_presence_of :name, :race
   validates_uniqueness_of :name

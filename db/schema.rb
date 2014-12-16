@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215174320) do
+ActiveRecord::Schema.define(version: 20141216084839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20141215174320) do
 
   add_index "buildings", ["race_id"], name: "index_buildings_on_race_id", using: :btree
 
+  create_table "event_objects", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "participant_id"
+    t.integer  "object_id"
+    t.string   "object_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: true do |t|
     t.string   "category"
     t.datetime "time"
@@ -42,26 +51,14 @@ ActiveRecord::Schema.define(version: 20141215174320) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "match_id"
-    t.integer  "building_id"
   end
 
-  add_index "events", ["building_id"], name: "index_events_on_building_id", using: :btree
   add_index "events", ["match_id"], name: "index_events_on_match_id", using: :btree
 
   create_table "events_players", id: false, force: true do |t|
     t.integer "event_id"
     t.integer "player_id"
   end
-
-  create_table "events_units", force: true do |t|
-    t.integer  "event_id"
-    t.integer  "unit_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "events_units", ["event_id"], name: "index_events_units_on_event_id", using: :btree
-  add_index "events_units", ["unit_id"], name: "index_events_units_on_unit_id", using: :btree
 
   create_table "maps", force: true do |t|
     t.string   "name"
