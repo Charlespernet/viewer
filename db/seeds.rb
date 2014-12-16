@@ -708,3 +708,68 @@ Player.create({ id: 5,
                 name: "MC".to_sym,
                 picture: File.open("#{Rails.root}/db/data_seed/players/mc.jpg")
               })
+
+Player.create({ id: 6,
+                name: "Innovation".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/innovation.jpg")
+              })
+
+Player.create({ id: 7,
+                name: "Soo".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/soo.jpg")
+              })
+
+Player.create({ id: 8,
+                name: "Life".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/life.jpg")
+              })
+
+Player.create({ id: 9,
+                name: "Marine King".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/marineking.jpg")
+              })
+
+Player.create({ id: 10,
+                name: "Jaedong".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/jaedong.jpg")
+              })
+
+Player.create({ id: 11,
+                name: "Solar".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/solar.jpg")
+              })
+
+Player.create({ id: 12,
+                name: "Taeja".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/taeja.jpg")
+              })
+
+Player.create({ id: 13,
+                name: "Hero".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/hero.jpg")
+              })
+
+Player.create({ id: 14,
+                name: "Parting".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/parting.jpg")
+              })
+
+Player.create({ id: 15,
+                name: "Hyun".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/hyun.jpg")
+              })
+
+Player.create({ id: 16,
+                name: "Polt".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/polt.jpg")
+              })
+
+Player.create({ id: 17,
+                name: "Snute".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/snute.jpg")
+              })
+
+Player.create({ id: 18,
+                name: "MMA".to_sym,
+                picture: File.open("#{Rails.root}/db/data_seed/players/mma.jpg")
+              })
