@@ -1,20 +1,27 @@
 <div class="wrapper">
-  <h1 class="text-center">bienvenue</h1>
+  <h1 class="text-center">"ENHANCE YOUR MATCH REPORTING !"</h1>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <div class= "content" id="matches">
-        <p><span>LATESTS</span> MATCHES</p>
+        <h3><span>LATESTS</span> MATCHES</h3>
+        <ul>
+          <% @matchs.each do |match| %>
+            <li><%= match.name %> - <%= match.participants.first.player.name %> VS <%= match.participants.last.player.name %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
       <div class="content" id="contact">
-       <p>A <span>POWERFUL</span> TOOL</p>
+        <h3>A <span>POWERFUL</span> TOOL</h3>
+        <p>
+        Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque discrimen vitae vexatus nihil fateri conpulsus est.
+        </p>
+
        <div id="mailing">
-
-
         <div id="mc_embed_signup">
         <form action="//github.us9.list-manage.com/subscribe/post?u=b35874e34517a58b6164bed15&amp;id=658ab1db27" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate text-center" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
