@@ -34,7 +34,7 @@ class EventsController < ApplicationController
       @event.set_base(participant) if @event.category == 'economy'
     when 'fight'
       @event.match.participants.each do |participant|
-        units = Unit.find(params[:event][:units][participant.id.to_s]) if params[:event][:units]
+        units = Unit.find(params[:event][:units][participant.player_id.to_s]) if params[:event][:units]
         @event.set_units(participant, units)
       end
     when 'technology'
