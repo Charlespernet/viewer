@@ -27,7 +27,17 @@
   height: auto;
 }
 
+#timeline {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(lightblue, white);
+  margin-bottom: 40px;
+}
 
 .event_unit label.active img {
   border: thin solid yellow;
+}
+
+#participant_name {
+  text-align: right;
 }
