@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
     case @event.category
     when 'economy'
-      participant = @match.participants.find(params[:event][:player_ids].first.to_i)
+      participant = @match.participants.find_by(player_id: params[:event][:player_ids].first.to_i)
       @event.set_base(participant) if @event.category == 'economy'
     when 'fight'
       @event.match.participants.each do |participant|
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
     when 'technology'
       # @event.building = Building.find(params[:event][:building])
       building = Building.find(params[:event][:building])
-      participant = @match.participants.find(params[:event][:player_ids].first.to_i)
+      participant = @match.participants.find_by(player_id: params[:event][:player_ids].first.to_i)
       @event.set_building(participant, building) if @event.category == 'technology'
     else
       raise "No category selected"
