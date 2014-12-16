@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('ready page:load', function() {
   $marker = $('#marker');
   $("#map").click(function(e) {
     var offset = $(this).offset();

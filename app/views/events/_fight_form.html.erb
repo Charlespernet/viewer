@@ -11,7 +11,7 @@
           <% participant.race.units.each do |unit| %>
             <label class="btn">
               <%= image_tag unit.picture.url(:thumb) %>
-              <input type="checkbox" name="event[unit][<%=participant.player.id%>][]" class="form-control player_units" value="<%=unit.id%>" />
+              <input type="checkbox" name="event[units][<%=participant.player.id%>][]" class="form-control player_units" value="<%=unit.id%>" />
             </label>
           <% end %>
         </div>
