@@ -26,6 +26,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.posX = params[:event][:pos_x]
     @event.posY = params[:event][:pos_y]
+    @event.ratio = params[:ratio]
     @event.match = @match
 
     case @event.category
