@@ -53,11 +53,12 @@
         <div id="p1"><%= @match.participants[0].player.name %></div>
       </div>
       <div class="col-xs-11">
-        <% @match.events.each do |event| %>
+        <% @match.events.each_with_index do |event, index| %>
           <% event.event_objects.each do |part_event| %>
+
             <% if part_event.participant == @match.participants[0] %>
-              <%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %>
-              <%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %>
+              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %></a>
+              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %></a>
             <% end %>
           <% end %>
         <% end %>
@@ -70,8 +71,8 @@
         </div>
         <div class="col-xs-11">
           <div id="separating_line"></div>
-          <% @match.events.each do |event| %>
-            <%= image_tag("fight.jpg", id: "fight-tag", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "fight" %>
+          <% @match.events.each_with_index do |event, index| %>
+            <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("fight.jpg", id: "fight-tag", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "fight" %></a>
           <% end %>
         </div>
       </div>
@@ -81,11 +82,12 @@
         <div id="p2"><%= @match.participants[1].player.name %></div>
       </div>
       <div class="col-xs-11">
-        <% @match.events.each do |event| %>
+        <% @match.events.each_with_index do |event, index| %>
           <% event.event_objects.each do |part_event| %>
+
             <% if part_event.participant == @match.participants[1] %>
-              <%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %>
-              <%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %>
+              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %></a>
+              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %></a>
             <% end %>
           <% end %>
         <% end %>
@@ -103,9 +105,15 @@
         <div class="col-xs-12">
           <div id="map" style="clear: both">
             <%= image_tag(@match.map.picture.url, class: "match_pic") %>
-            <% @match.events.each do |event| %>
-              <%= image_tag("fight.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "fight" %>
-              <%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "economy" %>
+            <% @match.events.each_with_index do |event, index| %>
+
+              <% case event.category %>
+                <% when "fight" %>
+                  <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("fight.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "fight" %></a>
+                <% when "economy" %>
+                  <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "economy" %></a>
+              <% end %>
+
             <% end %>
           </div>
         </div>
@@ -115,4 +123,51 @@
 </div>
 
 <div class="vertical-spacer"></div>
+
+
+
+
+<% @match.events.each_with_index do |event, index| %>
+  <div id= <%= "pop_#{index}" %> class="popbox">
+    <h2><%= "#{event.category.capitalize}" %></h2>
+    <p><%= "This is an #{event.category} popbox." %></p>
+
+    <div class="test">
+      <% if event.category == "fight" %>
+        <div class="row">
+          <div class="col-xs-5">
+            <% event.event_objects.each do |e_object| %>
+              <% p1_unit_url = Unit.find(e_object.object_id).picture if e_object.participant == @match.participants[0] %>
+              <%= image_tag(p1_unit_url) %>
+            <% end %>
+          </div>
+          <div class="col-xs-2 text-center">VS</div>
+          <div class="col-xs-5">
+            <% event.event_objects.each do |e_object| %>
+              <% p2_unit_url = Unit.find(e_object.object_id).picture if e_object.participant == @match.participants[1] %>
+              <%= image_tag(p2_unit_url) %>
+            <% end %>
+          </div>
+        </div>
+        <div class="vertical-spacer"></div>
+        <table class="cursor_table">
+          <tr>
+            <% for i in 0..(event.ratio.to_i) do %>
+              <td class="red"></td>
+            <% end %>
+            <% for i in (event.ratio.to_i + 1)..9 do %>
+              <td class="blue"></td>
+            <% end %>
+          </tr>
+        </table>
+
+      <% elsif event.category == "economy" %>
+        <p><%= event.event_objects.first.participant.player.name %> has built one <%= Building.find(event.event_objects.first.object_id).name %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+
 
