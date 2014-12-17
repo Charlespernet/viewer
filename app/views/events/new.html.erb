@@ -1,36 +1,38 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Event Creation</h1>
+  <div class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Event Creation</h1>
 
-      <%= simple_form_for([@match, @event]) do |f| %>
-        <!-- select category -->
-        <div id='category'>
-          <%= f.input :category %>
-        </div>
+        <%= simple_form_for([@match, @event]) do |f| %>
+          <!-- select category -->
+          <div id='category'>
+            <%= f.input :category %>
+          </div>
 
-        <div class='hidden' id='economy'>
-          <%= render 'eco_form', f: f %>
-        </div>
+          <div class='hidden' id='economy'>
+            <%= render 'eco_form', f: f %>
+          </div>
 
-        <div class='hidden' id="technology">
-          <%= render 'techno_form', f: f %>
-        </div>
+          <div class='hidden' id="technology">
+            <%= render 'techno_form', f: f %>
+          </div>
 
-        <div class='hidden' id="fight">
-          <%= render 'fight_form', f: f %>
-        </div>
+          <div class='hidden' id="fight">
+            <%= render 'fight_form', f: f %>
+          </div>
 
-        <div class="hidden" id="map">
-          <%= image_tag(@match.map.picture.url, class: "match_pic")%>
-          <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marker") %>
-          <%= f.input :posX, as: :hidden, input_html: { name: "event[pos_x]" } %>
-          <%= f.input :posY, as: :hidden, input_html: { name: "event[pos_y]" } %>
-        </div>
+          <div class="hidden" id="map">
+            <%= image_tag(@match.map.picture.url, class: "match_pic")%>
+            <%= image_tag("http://www.google.fr/url?source=imglanding&ct=img&q=http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Bubble-Chartreuse-icon.png&sa=X&ei=vPmGVIrWLoP9Us2bgvgC&ved=0CAkQ8wc4Fw&usg=AFQjCNHSjmw6rkbpTdt-q0jb4ne5Tsz8UQ", id: "marker") %>
+            <%= f.input :posX, as: :hidden, input_html: { name: "event[pos_x]" } %>
+            <%= f.input :posY, as: :hidden, input_html: { name: "event[pos_y]" } %>
+          </div>
 
-        <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
+          <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
 
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
