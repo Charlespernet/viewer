@@ -1,23 +1,48 @@
 <%= simple_form_for(@match) do |f| %>
 
-  <%= f.input :name %>
-
-  <%= f.input :start_time %>
-
-  <%= f.input :end_time %>
-
-  <div id="Participants">
-    <%= f.simple_fields_for :participants do |p| %>
-      <%= render "participant_fields", f: p %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add another participant', f, :participants %>
+  <div class="container">
+    <div class="row">
+      <div class="form-actions col-xs-12">
+        <%= f.input :name %>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="form-actions col-xs-3 col-xs-offset-2">
+        <%= f.input :start_time %>
+      </div>
+
+      <div class="form-actions col-xs-3 col-xs-offset-2">
+          <%= f.input :end_time %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-actions col-xs-12">
+        <div id="Participants">
+          <%= f.simple_fields_for :participants do |p| %>
+            <%= render "participant_fields", f: p %>
+          <% end %>
+          <div class="links" style="padding-left: 15px">
+            <%= link_to_add_association 'add another participant', f, :participants %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-actions col-xs-7" style="margin-left: 30px">
+        <%= f.input :map_id, collection: Map.all %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-actions col-xs-12">
+        <%= f.input :description %>
+      </div>
+    </div>
+
+    <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
   </div>
-
-  <%= f.input :map_id, collection: Map.all %>
-
-  <%= f.input :description %>
-
-  <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
+  </div>
 <% end %>
