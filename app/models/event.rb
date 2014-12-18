@@ -38,7 +38,7 @@ class Event < ActiveRecord::Base
   end
 
   def set_building(participant, building)
-    self.event_building ||= EventObject.create(event: self, participant: participant)
+    self.event_building ||= EventObject.create(event: self, participant: participant, object: building)
   end
 
   def set_units(participant, units)
