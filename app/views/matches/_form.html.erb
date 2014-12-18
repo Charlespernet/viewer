@@ -1,6 +1,5 @@
 <%= simple_form_for(@match) do |f| %>
 
-  <div class="container">
     <div class="row">
       <div class="form-actions col-xs-12">
         <%= f.input :name %>
@@ -35,6 +34,7 @@
         <%= f.input :map_id, collection: Map.all %>
       </div>
     </div>
+    </div>
 
     <div class="row">
       <div class="form-actions col-xs-12">
@@ -42,7 +42,10 @@
       </div>
     </div>
 
-    <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
-  </div>
+    <div class="row">
+      <div class="form-actions col-xs-12">
+        <%= f.button :submit, class: 'btn btn-danger btn-lg' %>
+      </div>
+    </div>
   </div>
 <% end %>
