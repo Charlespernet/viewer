@@ -57,7 +57,7 @@
           <% event.event_objects.each do |part_event| %>
 
             <% if part_event.participant == @match.participants[0] %>
-              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %></a>
+              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %></a>
               <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %></a>
             <% end %>
           <% end %>
@@ -72,7 +72,7 @@
         <div class="col-xs-11">
           <div id="separating_line"></div>
           <% @match.events.each_with_index do |event, index| %>
-            <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("fight.jpg", id: "fight-tag", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "fight" %></a>
+            <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("fight.png", id: "fight-tag", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "fight" %></a>
           <% end %>
         </div>
       </div>
@@ -86,7 +86,7 @@
           <% event.event_objects.each do |part_event| %>
 
             <% if part_event.participant == @match.participants[1] %>
-              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.jpg", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %></a>
+              <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "economy" %></a>
               <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("techno.png", id: "marked", style: "left:#{(event.time - @match.start_time) / (@match.end_time - @match.start_time) * 720 }px") if event.category == "technology" %></a>
             <% end %>
           <% end %>
@@ -109,9 +109,9 @@
 
               <% case event.category %>
                 <% when "fight" %>
-                  <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("fight.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "fight" %></a>
+                  <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("fight.png", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "fight" %></a>
                 <% when "economy" %>
-                  <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.jpg", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "economy" %></a>
+                  <a href="#" class="popper" data-popbox=<%= "pop_#{index}" %>><%= image_tag("eco.png", id: "marked", style: "left:#{event.posX}px; top:#{event.posY}px") if event.category == "economy" %></a>
               <% end %>
 
             <% end %>
