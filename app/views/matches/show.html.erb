@@ -162,7 +162,9 @@
         </table>
 
       <% elsif event.category == "economy" %>
-        <p><%= event.event_objects.first.participant.player.name %> has built one <%= Building.find(event.event_objects.first.object_id).name %></p>
+        <p><%= event.event_objects.first.participant.player.name %> has built one <%= Building.find(event.event_objects.first.object).name %></p>
+      <% elsif event.category == "technology" %>
+        <p><%= event.event_objects.first.participant.player.name %> has built one <%= Building.find(event.event_objects.first.object).name %></p>
       <% end %>
     </div>
   </div>
