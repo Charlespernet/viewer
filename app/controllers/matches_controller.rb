@@ -1,8 +1,9 @@
 class MatchesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_match, only: [:show, :edit, :update]
 
   def index
-    @matches = Match.all
+    @matches = Match.all.order(id: :desc)
   end
 
   def show

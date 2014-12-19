@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <div class= "content" id="matches">
-        <h3><span>LATESTS</span> MATCHES</h3>
+        <h3><span>LATESTS</span> GAMES</h3>
         <ul>
           <% @matchs.each do |match| %>
             <li><%= match.name %> - <%= match.participants.first.player.name %> VS <%= match.participants.last.player.name %></li>
